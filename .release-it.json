@@ -5,10 +5,6 @@
      "tagName": "v${version}"
   },
 
-  "hooks": {
-    "after:bump": "npx auto-changelog -p"
-  },
-
   "github": {
     "release": true,
     "releaseName": "v${version}",
