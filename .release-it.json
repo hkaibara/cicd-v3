@@ -12,8 +12,9 @@
   "github": {
     "release": true,
     "releaseName": "v${version}",
-    "releaseNotes": {
-      "commit": "* ${commit.subject} (${sha}){ - @${author.login}!}"
+    "comments": {
+      "submit": true,
+      "pr": ":rocket: _This pull request is included in v${version}. See [${releaseName}](${releaseUrl}) for release notes._"
     }
   },
   "npm": {
