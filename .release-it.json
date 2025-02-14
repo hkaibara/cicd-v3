@@ -12,7 +12,8 @@
   "github": {
     "release": true,
     "releaseName": "v${version}",
-    "releaseNotes": "git log --no-merges --pretty=format:\"* %s %h\" ${latestTag}...main"
+    "releaseNotes": {
+      "commit": "* ${commit.subject} (${sha}){ - @${author.login}!}"
   },
   "npm": {
     "publish": false
