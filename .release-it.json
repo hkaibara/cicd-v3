@@ -14,6 +14,7 @@
     "releaseName": "v${version}",
     "releaseNotes": {
       "commit": "* ${commit.subject} (${sha}){ - @${author.login}!}"
+    }
   },
   "npm": {
     "publish": false
