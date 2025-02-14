@@ -1,0 +1,21 @@
+name: Testings
+on: workflow_dispatch
+# on:
+#   release:
+#     types: [published]
+jobs:
+  release:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - name: Git
+        run: |
+          git config user.name "GitHub Action Bot"
+          git config user.email "<>"
+          git switch dev
+          git rebase origin/main
+          git push origin dev
