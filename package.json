@@ -6,5 +6,5 @@
   "scripts": {
     "release": "release-it"
   },
-  "version": "0.5.0-feat-b.1"
+  "version": "0.5.0-rc.0"
 }
