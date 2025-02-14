@@ -39,7 +39,7 @@ jobs:
         elif [ ${{github.ref_name}} == 'dev' ]; then
           npx release-it --preRelease=rc --ci
         else
-          npx release-it --preRelease=dev --no-github.release --ci
+          npx release-it --preRelease=${{github.ref_name}} --no-github.release --ci
         fi
         version=$(jq -r '.version' package.json)
         echo $version
