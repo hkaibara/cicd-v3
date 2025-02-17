@@ -1,0 +1,33 @@
+name: Back Sync - Feature
+on: workflow_dispatch
+jobs:
+  Load-Feat:
+    runs-on:  ubuntu-20.04
+    outputs:
+      branch: ${{steps.set-matrix.outputs.branch}}
+    steps:
+    - name: Clone App Repo
+      uses: actions/checkout@v3
+      with:
+        ref: ${{github.ref_name}}
+        fetch-depth: 0
+    - name: Set matrix data
+      id: set-matrix
+      run: |
+        if if [ ${{github.ref_name}} == 'dev' ]; then
+        echo "matrix=$(git branch -a | grep feat-a | awk -F'[/"]*' '{print $3}')" >> $GITHUB_OUTPUT
+
+
+  Sync-Back-Feat:
+    runs-on: ubuntu-20.04
+    needs: Load-Feat
+    strategy:
+      matrix: 
+        branch: ${{fromJson(needs.Load-Feat.outputs.branch)}}
+    steps:
+      - name: Git echo branch
+        env:
+          branch: ${{matrix.branch}}
+        run: |
+          echo $branch
+        
