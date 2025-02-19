@@ -14,7 +14,7 @@ jobs:
     - name: Set matrix data
       id: set-matrix
       run: |
-        if if [ ${{github.ref_name}} == 'dev' ]; then
+        if [ ${{github.ref_name}} == 'dev' ]; then
           echo "matrix=$(git branch -r | grep "feat" | sed -e 's/.*origin\///g; $!s/$/,/')" >> $GITHUB_OUTPUT
 
 
