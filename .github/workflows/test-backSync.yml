@@ -16,7 +16,7 @@ jobs:
       run: |
         if [ ${{github.ref_name}} == 'dev' ]; then
           echo "matrix=$(git branch -r | grep "feat" | sed -e 's/.*origin\///g; $!s/$/,/')" >> $GITHUB_OUTPUT
-
+        fi;
 
   Sync-Back-Feat:
     runs-on: ubuntu-20.04
