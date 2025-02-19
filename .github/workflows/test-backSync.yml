@@ -15,7 +15,7 @@ jobs:
       id: set-matrix
       run: |
         if [ ${{github.ref_name}} == 'dev' ]; then
-          echo "matrix=$(git branch -r | grep "feat" | sed -e 's/.*origin\///g; $!s/$/,/')" >> $GITHUB_OUTPUT
+          echo "matrix=$(git branch -r | grep "feat" | sed 's|.*\/\(.*\)|"\1"|; $!s/$/,/')" >> $GITHUB_OUTPUT
         fi;
 
   Sync-Back-Feat:
