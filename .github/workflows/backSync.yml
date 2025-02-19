@@ -16,4 +16,3 @@ jobs:
           git switch dev
           git rebase origin/main
           git push origin dev
-        
