@@ -15,4 +15,5 @@ jobs:
           git config user.email "<>"
           git switch dev
           git rebase origin/main
-          git push origin dev
+          git push origin dev --force
+        
